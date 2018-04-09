@@ -124,7 +124,7 @@ public class Sorts {
         int[] temp = new int[lenght];
         
         for (int i = 0; i < lenght; i++)
-            temp[i] = rd.nextInt(10);
+            temp[i] = rd.nextInt(100);
         
         return temp;
     }
@@ -136,24 +136,24 @@ public class Sorts {
         int[] c = a.clone();
         int[] d = a.clone();
         sorts.printArray(a);
-        long ta = System.currentTimeMillis());
+        long ta = System.currentTimeMillis();
         sorts.bubbleSort(a);
-        System.out.println(System.nanoTime()-ta);
+        System.out.println(System.currentTimeMillis()-ta);
         sorts.printArray(a);
         sorts.printArray(b);
-        long tb = System.currentTimeMillis());
+        long tb = System.currentTimeMillis();
         sorts.insertionSort(b);
-        System.out.println(System.nanoTime()-ta);
+        System.out.println(System.currentTimeMillis()-tb);
         sorts.printArray(b);
         sorts.printArray(c);
-        long tc = System.currentTimeMillis());
+        long tc = System.currentTimeMillis();
         c = sorts.mergeSort(c);
-        System.out.println(System.nanoTime()-ta);
+        System.out.println(System.currentTimeMillis()-tc);
         sorts.printArray(c);
         sorts.printArray(d);
-        long td = System.currentTimeMillis());
+        long td = System.currentTimeMillis();
         sorts.countingSort(d);
-        System.out.println(System.nanoTime()-ta);
+        System.out.println(System.currentTimeMillis()-td);
         sorts.printArray(d);
     }
     
