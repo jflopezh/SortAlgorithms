@@ -41,6 +41,29 @@ public class Searches {
                     return binarySearchRecursive(array, x, middlePoint + 1, uB);
     }
     
+    
+    
+    public int interpolationSearch(int[] array, int x) {
+        int lowerBound = 0, upperBound = array.length - 1, index = -1, middlePoint;
+        
+        while (lowerBound < upperBound) {
+            middlePoint = lowerBound + ((upperBound - lowerBound) / (array[upperBound]
+                    - array[lowerBound])) * (x - array[lowerBound]);
+            if (x == array[middlePoint]) {
+                index = middlePoint;
+                break;
+            } else if (x < array[middlePoint])
+                upperBound = middlePoint - 1;
+            else
+                lowerBound = middlePoint + 1;            
+        }
+        
+        if (lowerBound == upperBound && x == array[lowerBound])            
+            index = lowerBound;
+        
+        return index;
+    }
+    
     public static void main(String[] args) throws IOException {
         Sorts sorts = new Sorts();
         Searches searches = new Searches();
@@ -50,7 +73,17 @@ public class Searches {
         a = sorts.mergeSort(a);
         sorts.printArray(a);
         
-        System.out.println(searches.binarySearchRecursive(a, 59, 0, a.length - 1));
+        System.out.println(searches.interpolationSearch(a, 5));
+        
+        List l = new List();
+        l.insertAtBegin(new Node(1, "fgkjsldgalkjds"));
+        l.insertAtEnd(new Node(2, "gflauewriul"));
+        l.insertAtEnd(new Node(7, "uiuerwhtbt g"));
+        l.insertAtEnd(new Node(20, "aw4nrtgawuu"));
+        l.insertAtEnd(new Node(32, "ujxdf bserj"));
+        
+        System.out.println(l.binarySearch(20));
+        System.out.println(l.binarySearchRecursive(20, 0, l.size - 1));
     }
     
 }
