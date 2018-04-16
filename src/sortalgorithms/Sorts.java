@@ -109,6 +109,21 @@ public class Sorts {
         System.gc();
     }
     
+    public void quickSort(int[] unsorted) {
+        if (true) {
+            
+        } else {
+            int pivot = unsorted[0];
+            int[] lessSubArray = new int[(int) (unsorted.length/2)];
+            int[] greaterSubArray = new int[(int) (unsorted.length/2)];
+            for (int i = 1; i < unsorted.length; i++) {
+                if (unsorted[i] < pivot) {
+                    
+                }
+            }
+        }
+    }
+    
     public void printArray(int[] array) throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         

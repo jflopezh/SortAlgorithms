@@ -65,25 +65,28 @@ public class Searches {
     }
     
     public static void main(String[] args) throws IOException {
-        Sorts sorts = new Sorts();
-        Searches searches = new Searches();
-        
-        int[] a = sorts.bigArray(100);
-        sorts.printArray(a);
-        a = sorts.mergeSort(a);
-        sorts.printArray(a);
-        
-        System.out.println(searches.interpolationSearch(a, 5));
+//        Sorts sorts = new Sorts();
+//        Searches searches = new Searches();
+//        
+//        int[] a = sorts.bigArray(100);
+//        sorts.printArray(a);
+//        a = sorts.mergeSort(a);
+//        sorts.printArray(a);
+//        
+//        System.out.println(searches.interpolationSearch(a, 5));
         
         List l = new List();
-        l.insertAtBegin(new Node(1, "fgkjsldgalkjds"));
-        l.insertAtEnd(new Node(2, "gflauewriul"));
-        l.insertAtEnd(new Node(7, "uiuerwhtbt g"));
-        l.insertAtEnd(new Node(20, "aw4nrtgawuu"));
-        l.insertAtEnd(new Node(32, "ujxdf bserj"));
+        l.insertAtBegin(new Node(5, "fgkjsldgalkjds"));
+        l.insertAtEnd(new Node(4, "gflauewriul"));
+        l.insertAtEnd(new Node(22, "uiuerwhtbt g"));
+        l.insertAtEnd(new Node(13, "aw4nrtgawuu"));
+        l.insertAtEnd(new Node(2, "ujxdf bserj"));
         
-        System.out.println(l.binarySearch(20));
-        System.out.println(l.binarySearchRecursive(20, 0, l.size - 1));
+        l = l.quickSort(l);
+        l.printList();
+        
+//        System.out.println(l.binarySearch(20));
+//        System.out.println(l.binarySearchRecursive(20, 0, l.size - 1));
     }
     
 }

@@ -53,6 +53,13 @@ public class List {
         }
         size++;
     }
+    
+    public void addList(List l) {
+        if (!isEmpty()) {
+            this.insertAtEnd(l.head);
+            size += l.size - 1;
+        }
+    }
 
     public void deleteAtBegin() {
         Node temp = head;
@@ -130,6 +137,34 @@ public class List {
                     return binarySearchRecursive(id, lB, middlePoint - 1);
                 else
                     return binarySearchRecursive(id, middlePoint + 1, uB);
+    }
+    
+    public List quickSort(List unsorted) {
+        if (unsorted.size <= 1) {
+            return unsorted;
+        } else {
+            Node pivot = unsorted.head;
+            List lessSubArray = new List();
+            List greaterSubArray = new List();
+            Node temp = unsorted.head.next;
+            
+            while (temp != null) {
+                if (temp.id < pivot.id)
+                    lessSubArray.insertAtEnd(temp.clone());
+                else
+                    greaterSubArray.insertAtEnd(temp.clone());
+                
+                temp = temp.next;
+            }
+            
+            lessSubArray = quickSort(lessSubArray);
+            greaterSubArray = quickSort(greaterSubArray);
+            
+            lessSubArray.insertAtEnd(pivot.clone());
+            lessSubArray.addList(greaterSubArray);
+            
+            return lessSubArray;
+        }
     }
 
 }
